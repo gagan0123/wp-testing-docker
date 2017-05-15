@@ -1,4 +1,4 @@
-FROM php:7.0
+FROM tetraweb/php:7.0
 
 MAINTAINER Gagan Deep Singh <me@gagan.pro>
 
