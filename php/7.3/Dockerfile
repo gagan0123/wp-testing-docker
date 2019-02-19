@@ -33,7 +33,6 @@ RUN additionalPackages=" \
         libxpm-dev \
         libxslt1-dev \
         zlib1g-dev \
-        libzip-dev \
     " \
     && runDeps=" \
         gnupg2 \
@@ -51,6 +50,7 @@ RUN additionalPackages=" \
         libxpm4 \
         libxslt1.1 \
         snmp \
+        libzip-dev \
     " \
     && phpModules=" \
         bcmath \
