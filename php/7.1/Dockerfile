@@ -38,7 +38,7 @@ RUN additionalPackages=" \
         libc-client2007e \
         libenchant1c2a \
         libfreetype6 \
-        libicu52 \
+        libicu55 \
         libjpeg62-turbo \
         libmcrypt4 \
         libpng16-16 \
