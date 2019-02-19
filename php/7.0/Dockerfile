@@ -146,6 +146,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && apt-get install -y nodejs build-essential yarn \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN apt-get -yqq update
 RUN apt-get -yqqf install zip unzip subversion mysql-client default-libmysqlclient-dev --fix-missing
 RUN docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2
 RUN composer global require "wp-coding-standards/wpcs"
