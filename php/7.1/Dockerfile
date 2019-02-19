@@ -41,10 +41,10 @@ RUN additionalPackages=" \
         libicu52 \
         libjpeg62-turbo \
         libmcrypt4 \
-        libpng-0 \
+        libpng16-16 \
         libpq5 \
         libsybdb5 \
-        libtidy-dev \
+        libtidy5 \
         libx11-6 \
         libxpm4 \
         libxslt1.1 \
