@@ -34,7 +34,7 @@ RUN buildDeps=" \
         bcmath bz2 calendar dba enchant exif ftp gd gettext gmp imap intl ldap mbstring mcrypt mssql mysql mysqli opcache pcntl pdo pdo_dblib pdo_mysql pdo_pgsql pgsql pspell shmop snmp soap sockets sysvmsg sysvsem sysvshm tidy wddx xmlrpc xsl zip xdebug \
     " \
     && echo "deb http://httpredir.debian.org/debian jessie contrib non-free" > /etc/apt/sources.list.d/additional.list \
-    && apt-get update && apt-get install -y libc-client2007e libenchant1c2a libfreetype6 libicu57 libjpeg62-turbo libmcrypt4 libpng16-16 libpq5 libsybdb5 libtidy5 libx11-6 libxpm4 libxslt1.1 snmp --no-install-recommends \
+    && apt-get update && apt-get install -y gnupg2 libc-client2007e libenchant1c2a libfreetype6 libicu57 libjpeg62-turbo libmcrypt4 libpng16-16 libpq5 libsybdb5 libtidy5 libx11-6 libxpm4 libxslt1.1 snmp --no-install-recommends \
     && apt-get install -y $buildDeps --no-install-recommends \
     && docker-php-source extract \
     && cd /usr/src/php/ext/ \
