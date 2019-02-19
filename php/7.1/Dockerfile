@@ -153,7 +153,7 @@ CMD ["php", "-a"]
 
 RUN apt-get clean
 RUN apt-get -yqq update
-RUN apt-get -yqqf install zip unzip subversion mysql-client libmysqlclient-dev --fix-missing
+RUN apt-get -yqqf install zip unzip subversion mysql-client default-libmysqlclient-dev --fix-missing
 RUN docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2
 RUN composer global require "wp-coding-standards/wpcs"
 RUN phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs

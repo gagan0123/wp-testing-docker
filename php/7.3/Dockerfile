@@ -1,6 +1,6 @@
 FROM php:7.3
 
-ENV XDEBUG_VERSION 2.6.0
+ENV XDEBUG_VERSION 2.7.0RC2
 
 RUN additionalPackages=" \
         apt-transport-https \
@@ -33,6 +33,7 @@ RUN additionalPackages=" \
         libxpm-dev \
         libxslt1-dev \
         zlib1g-dev \
+        libzip-dev \
     " \
     && runDeps=" \
         gnupg2 \
