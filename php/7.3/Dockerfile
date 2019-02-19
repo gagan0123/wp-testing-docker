@@ -148,7 +148,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 RUN apt-get -yqq update
 RUN apt-get -yqqf install zip unzip subversion mysql-client default-libmysqlclient-dev libmcrypt-dev --fix-missing
-RUN pecl install mcrypt-1.0.2
+RUN pecl install mcrypt-1.0.2 zip
 RUN docker-php-ext-enable mbstring mcrypt mysqli pdo_mysql intl gd zip bz2
 RUN composer global require "wp-coding-standards/wpcs"
 RUN phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
