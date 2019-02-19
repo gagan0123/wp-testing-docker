@@ -35,6 +35,7 @@ RUN additionalPackages=" \
         zlib1g-dev \
     " \
     && runDeps=" \
+        gnupg2 \
         libc-client2007e \
         libenchant1c2a \
         libfreetype6 \
