@@ -26,5 +26,5 @@ The goal of these tools is to automate as much as possible of routine work relat
 
 ## Example Gitlab config
 
-You can go through a sample gitlab configuration for a WordPress plugin [here](sample-gitlab-config).
+You can go through a sample gitlab configuration for a WordPress plugin [here](https://github.com/gagan0123/wp-testing-docker/tree/master/sample-gitlab-config).
 Make sure to include both, the gitlab configuration file .gitlab-ci.yml and the bin folder with install-wp-tests.sh
