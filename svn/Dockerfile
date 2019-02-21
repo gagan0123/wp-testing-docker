@@ -2,13 +2,13 @@ FROM alpine
 MAINTAINER Gagan Deep Singh<me@gagan.pro>
 
 # Update APK sources
-RUN apk update
+RUN apk update --no-cache
 
 # Upgrade existing packages
-RUN apk upgrade
+RUN apk upgrade --no-cache
 
 # Install bash subversion git and wget
-RUN apk --no-cache add bash subversion git wget
+RUN apk --no-cache add bash subversion git curl wget openssh-client
 
 # Clean up our build
 RUN rm -rf /var/cache/apk/*
