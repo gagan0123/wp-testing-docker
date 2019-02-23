@@ -5,8 +5,7 @@ MAINTAINER Gagan Deep Singh<me@gagan.pro>
 RUN apk add --no-cache --virtual build-deps git
 
 # Lets install phpcs and make it executable
-RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-RUN mv phpcs.phar /usr/local/bin/phpcs
+RUN curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o /usr/local/bin/phpcs
 RUN chmod +x /usr/local/bin/phpcs
 
 # Now intalling wpcs and setting phpcs config to wpcs path
@@ -15,4 +14,4 @@ RUN cd wpcs && rm -rf .gitattributes .phpcs.xml.dist .travis.yml CHANGELOG.md LI
 RUN phpcs --config-set installed_paths /wpcs
 
 # Remove the build dependencies to keep image small
-RUN apk del build-deps
+RUN apk del --no-cache build-deps
