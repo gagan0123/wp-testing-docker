@@ -55,6 +55,13 @@ RUN pecl install \
 # Remove pecl related stuff
 RUN apk del --no-cache pcre-dev ${PHPIZE_DEPS}
 
+# Enabling pecl extensions
+RUN docker-php-ext-enable \
+    xdebug \
+    imagick \
+    mongodb \
+    redis
+
 # Remove unnecessary files
 RUN apk del --no-cache \
     bzip2-dev \
