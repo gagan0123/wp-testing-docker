@@ -21,7 +21,10 @@ RUN apk add --no-cache \
     icu-dev \
     # For zip
     libzip \
-    libzip-dev
+    libzip-dev \
+    # For ImageMagick
+    imagemagick \
+    imagemagick-dev
 
 # Configure PHP Extensions
 RUN docker-php-ext-configure bz2
@@ -38,13 +41,35 @@ RUN docker-php-ext-install \
     mysqli \
     zip
 
+# Now getting things done with pecl
+RUN apk add --no-cache pcre-dev ${PHPIZE_DEPS}
+RUN pecl install \
+    # Install Xdebug
+    xdebug-2.7.0beta1 \
+    # Install Imagick
+    imagick \
+    # Install MongoDB
+    mongodb \
+    # Install redis
+    redis
+# Remove pecl related stuff
+RUN apk del --no-cache pcre-dev ${PHPIZE_DEPS}
+
+# Enabling pecl extensions
+RUN docker-php-ext-enable \
+    xdebug \
+    imagick \
+    mongodb \
+    redis
+
 # Remove unnecessary files
 RUN apk del --no-cache \
     bzip2-dev \
     libpng-dev \
     libjpeg-turbo-dev \
     freetype-dev \
-    libzip-dev
+    libzip-dev \
+    imagemagick-dev
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php \
