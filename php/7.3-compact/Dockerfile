@@ -29,9 +29,6 @@ RUN docker-php-ext-install \
     mysqli \
     zip
 
-# Get rid of extra files
-RUN apk del --no-cache phpDependencies
-
 # Install PHPUnit
 RUN curl -L https://phar.phpunit.de/phpunit-7.phar -o /usr/local/bin/phpunit
 RUN chmod +x /usr/local/bin/phpunit
