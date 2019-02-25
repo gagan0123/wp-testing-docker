@@ -45,7 +45,7 @@ RUN docker-php-ext-install \
 RUN apk add --no-cache pcre-dev ${PHPIZE_DEPS}
 RUN pecl install \
     # Install Xdebug
-    xdebug \
+    xdebug-2.5.5 \
     # Install Imagick
     imagick \
     # Install MongoDB
