@@ -51,7 +51,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 
 # Install PHPUnit and make it executable
-RUN curl -L https://phar.phpunit.de/phpunit-7.phar -o /usr/local/bin/phpunit && \
+RUN curl -L https://phar.phpunit.de/phpunit-6.phar -o /usr/local/bin/phpunit && \
     chmod +x /usr/local/bin/phpunit
 
 # Copy and set our entrypoint
