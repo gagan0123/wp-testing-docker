@@ -3,22 +3,34 @@ services: docker
 sudo: required
 
 env:
-    - VERSION=php/5.6/
-    - VERSION=php/5.6-extended/
-    - VERSION=php/7.0/
-    - VERSION=php/7.0-extended/
-    - VERSION=php/7.1/
-    - VERSION=php/7.1-extended/
-    - VERSION=php/7.2/
-    - VERSION=php/7.2-extended/
-    - VERSION=php/7.3/
-    - VERSION=php/7.3-extended/
+    - FOLDER=php/5.6/
+      TAG=wpunit/php:5.6
+    - FOLDER=php/5.6-extended/
+      TAG=wpunit/php:5.6-extended
+    - FOLDER=php/7.0/
+      TAG=wpunit/php:7.0
+    - FOLDER=php/7.0-extended/
+      TAG=wpunit/php:7.0-extended
+    - FOLDER=php/7.1/
+      TAG=wpunit/php:7.1
+    - FOLDER=php/7.1-extended/
+      TAG=wpunit/php:7.1-extended
+    - FOLDER=php/7.2/
+      TAG=wpunit/php:7.2
+    - FOLDER=php/7.2-extended/
+      TAG=wpunit/php:7.2-extended
+    - FOLDER=php/7.3/ 
+      TAG=wpunit/php:7.3
+    - FOLDER=php/7.3-extended/
+      TAG=wpunit/php:7.3-extended
+    - FOLDER=php/phpcs/
+      TAG=wpunit/php:wpcs
 
 before_script:
-  - cd $VERSION
+  - cd $FOLDER
 
 script:
-  - docker build .
+  - docker build --pull -t $TAG .
 
 after_script:
   - docker images
