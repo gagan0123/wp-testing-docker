@@ -30,7 +30,8 @@ before_script:
   - cd $FOLDER
 
 script:
-  - docker build --pull -t $TAG .
+  - docker pull $TAG
+  - docker build -t $TAG .
 
 after_script:
   - docker images
