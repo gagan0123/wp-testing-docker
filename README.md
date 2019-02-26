@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/gagan0123/wp-testing-docker.svg?branch=master)](https://travis-ci.com/gagan0123/wp-testing-docker)
+
 # WordPress PHP CI Kit with Docker
 
 This repository contains a set of utilities for running PHP tests in WordPress via [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
