@@ -3,35 +3,37 @@ services: docker
 sudo: required
 
 env:
-    - FOLDER=php/5.6/
-      TAG=wpunit/php:5.6
-    - FOLDER=php/5.6-extended/
-      TAG=wpunit/php:5.6-extended
-    - FOLDER=php/7.0/
-      TAG=wpunit/php:7.0
-    - FOLDER=php/7.0-extended/
-      TAG=wpunit/php:7.0-extended
-    - FOLDER=php/7.1/
-      TAG=wpunit/php:7.1
-    - FOLDER=php/7.1-extended/
-      TAG=wpunit/php:7.1-extended
-    - FOLDER=php/7.2/
-      TAG=wpunit/php:7.2
-    - FOLDER=php/7.2-extended/
-      TAG=wpunit/php:7.2-extended
-    - FOLDER=php/7.3/ 
-      TAG=wpunit/php:7.3
-    - FOLDER=php/7.3-extended/
-      TAG=wpunit/php:7.3-extended
-    - FOLDER=php/phpcs/
-      TAG=wpunit/php:wpcs
-
-before_script:
-  - cd $FOLDER
+    global:
+        - DEV_REPO=gagan0123/dev
+        - RELEASE_REPO=wpunit/php
+    matrix:
+        - FOLDER=php/5.6/
+          TAG=5.6
+        - FOLDER=php/5.6-extended/
+          TAG=5.6-extended
+        - FOLDER=php/7.0/
+          TAG=7.0
+        - FOLDER=php/7.0-extended/
+          TAG=7.0-extended
+        - FOLDER=php/7.1/
+          TAG=7.1
+        - FOLDER=php/7.1-extended/
+          TAG=7.1-extended
+        - FOLDER=php/7.2/
+          TAG=7.2
+        - FOLDER=php/7.2-extended/
+          TAG=7.2-extended
+        - FOLDER=php/7.3/ 
+          TAG=7.3
+        - FOLDER=php/7.3-extended/
+          TAG=7.3-extended
+        - FOLDER=php/phpcs/
+          TAG=wpcs
 
 script:
-  - docker pull $TAG
-  - docker build --cache-from $TAG -t $TAG .
-
-after_script:
-  - docker images
+  - bash bin/build.sh
+  
+jobs:
+  include:
+    - stage: Docker Release
+      script: bash bin/release.sh
