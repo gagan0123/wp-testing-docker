@@ -34,7 +34,7 @@ do
     export CONTAINER_TEST_IMAGE="$DEV_REPO:$TAG-$TRAVIS_COMMIT";
     export CONTAINER_RELEASE_IMAGE="$RELEASE_REPO:$TAG";
 
-    fold_start "$TAG" "Releasing tag $TAG from $CONTAINER_TEST_IMAGE to $CONTAINER_RELEASE_IMAGE"
+    fold_start "$TAG" "Releasing tag $TAG to $CONTAINER_RELEASE_IMAGE"
     # Releasing current image
     docker pull $CONTAINER_TEST_IMAGE;
     docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE;
