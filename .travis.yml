@@ -31,7 +31,7 @@ before_script:
 
 script:
   - docker pull $TAG
-  - docker build -t $TAG .
+  - docker build --cache-from $TAG -t $TAG .
 
 after_script:
   - docker images
