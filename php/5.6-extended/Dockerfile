@@ -79,6 +79,11 @@ RUN curl -sS https://getcomposer.org/installer | php \
 RUN curl -L https://phar.phpunit.de/phpunit-5.phar -o /usr/local/bin/phpunit && \
     chmod +x /usr/local/bin/phpunit
 
+# Install wp-cli
+RUN curl -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \ 
+    -o /usr/local/bin/wp && \
+    chmod +x /usr/local/bin/wp
+
 # Copy and set our entrypoint
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
