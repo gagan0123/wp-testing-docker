@@ -2,17 +2,18 @@
 
 # Creating array of tags to be pushed for release
 CONTAINERS=(
-    5.6
-    5.6-extended
-    7.0
-    7.0-extended
-    7.1
-    7.1-extended
-    7.2
-    7.2-extended
-    7.3
-    7.3-extended
     wpcs
+    svn-release
+    5.6-extended
+    7.0-extended
+    7.1-extended
+    7.2-extended
+    7.3-extended
+    5.6
+    7.0
+    7.1
+    7.2
+    7.3
 )
 
 # Login to docker

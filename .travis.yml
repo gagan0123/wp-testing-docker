@@ -29,6 +29,8 @@ env:
           TAG=7.3-extended
         - FOLDER=php/phpcs/
           TAG=wpcs
+        - FOLDER=svn/
+          TAG=svn-release
 
 script:
   - bash bin/build.sh
