@@ -16,6 +16,12 @@ fold_end() {
 # Change directory to our Dockerfile
 cd $FOLDER
 
+# Configure docker to use experimental feature to enable squash
+fold_start "dockerconfigure" "Configuring docker"
+echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
+sudo service docker restart
+fold_end "dockerconfigure"
+
 # Login to docker
 fold_start "dockerlogin" "Logging in to Docker"
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
@@ -26,7 +32,7 @@ fold_start "dockerpull" "Pulling from $CONTAINER_RELEASE_IMAGE"
 docker pull $CONTAINER_RELEASE_IMAGE
 fold_end "dockerpull"
 fold_start "dockerbuild" "Building Image $CONTAINER_TEST_IMAGE"
-docker build --cache-from $CONTAINER_RELEASE_IMAGE -t $CONTAINER_TEST_IMAGE .
+docker build --squash --cache-from $CONTAINER_RELEASE_IMAGE -t $CONTAINER_TEST_IMAGE .
 fold_end "dockerbuild"
 
 # Push built image to docker
