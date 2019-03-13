@@ -4,12 +4,15 @@ MAINTAINER Gagan Deep Singh<me@gagan.pro>
 # Required packages for executing bash scripts and svn commands
 RUN apk add --no-cache bash subversion
 
-# Install PHP dependencies
+# Install PHP dependencies for extensions
+# For bz2 : bzip2 bzip2-dev
+# For gd : libpng libpng-dev libjpeg-turbo libjpeg-turbo-dev freetype freetype-dev libgd 
+# For intl(don't remove dev): icu-dev
+# For zip: libzip libzip-dev
+# For ImageMagick: imagemagick imagemagick-dev
 RUN apk add --no-cache \
-    # For bz2 extension
     bzip2 \
     bzip2-dev \
-    # For gd extension
     libpng \
     libpng-dev \
     libjpeg-turbo \
@@ -17,12 +20,9 @@ RUN apk add --no-cache \
     freetype \
     freetype-dev \
     libgd \
-    # For intl(don't remove dev)
     icu-dev \
-    # For zip
     libzip \
     libzip-dev \
-    # For ImageMagick
     imagemagick \
     imagemagick-dev
 
@@ -43,14 +43,11 @@ RUN docker-php-ext-install \
 
 # Now getting things done with pecl
 RUN apk add --no-cache pcre-dev ${PHPIZE_DEPS}
+# Install Xdebug Imagick MongoDB and Redis
 RUN pecl install \
-    # Install Xdebug
     xdebug-2.7.0beta1 \
-    # Install Imagick
     imagick \
-    # Install MongoDB
     mongodb \
-    # Install redis
     redis
 # Remove pecl related stuff
 RUN apk del --no-cache pcre-dev ${PHPIZE_DEPS}
