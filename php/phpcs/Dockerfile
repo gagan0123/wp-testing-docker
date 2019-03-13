@@ -15,3 +15,10 @@ RUN phpcs --config-set installed_paths /wpcs
 
 # Remove the build dependencies to keep image small
 RUN apk del --no-cache build-deps
+
+# Remove PHP Source files
+RUN rm -rf /usr/src/
+
+# Copy and set our entrypoint
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
