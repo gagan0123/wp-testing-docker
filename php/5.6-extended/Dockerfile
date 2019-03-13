@@ -70,6 +70,9 @@ RUN apk del --no-cache \
     libzip-dev \
     imagemagick-dev
 
+# Remove PHP Source files
+RUN rm -rf /usr/src/
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
