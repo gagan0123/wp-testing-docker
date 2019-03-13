@@ -29,7 +29,9 @@ fold_end "dockerlogin"
 
 # Build Docker image
 fold_start "dockerbuild" "Building Image $CONTAINER_TEST_IMAGE"
-docker build --squash --cache-from $CONTAINER_RELEASE_IMAGE -t $CONTAINER_TEST_IMAGE . && exit 1;
+docker build --squash --cache-from $CONTAINER_RELEASE_IMAGE -t $CONTAINER_TEST_IMAGE . || {
+    echo "Build failed, exiting..."; exit 1;
+}
 fold_end "dockerbuild"
 
 # Push built image to docker
