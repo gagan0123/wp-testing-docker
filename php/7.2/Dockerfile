@@ -49,10 +49,6 @@ RUN apk del --no-cache \
 # Remove PHP Source files
 RUN rm -rf /usr/src/
 
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer
-
 # Install PHPUnit and make it executable
 RUN curl -L https://phar.phpunit.de/phpunit-7.phar -o /usr/local/bin/phpunit && \
     chmod +x /usr/local/bin/phpunit
