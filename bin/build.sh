@@ -27,10 +27,7 @@ fold_start "dockerlogin" "Logging in to Docker"
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 fold_end "dockerlogin"
 
-# Build Docker image using cache
-fold_start "dockerpull" "Pulling from $CONTAINER_RELEASE_IMAGE"
-docker pull $CONTAINER_RELEASE_IMAGE
-fold_end "dockerpull"
+# Build Docker image
 fold_start "dockerbuild" "Building Image $CONTAINER_TEST_IMAGE"
 docker build --squash --cache-from $CONTAINER_RELEASE_IMAGE -t $CONTAINER_TEST_IMAGE .
 fold_end "dockerbuild"
