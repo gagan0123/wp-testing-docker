@@ -86,7 +86,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 
 # Install NodeJS, NPM and Yarn
-RUN apk add --no-cache nodejs npm yarn
+RUN apk add --no-cache nodejs yarn
 
 # Copy and set our entrypoint
 COPY entrypoint.sh /entrypoint.sh
