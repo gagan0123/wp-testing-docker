@@ -71,10 +71,6 @@ RUN apk del --no-cache \
 # Remove PHP Source files
 RUN rm -rf /usr/src/
 
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer
-
 # Install PHPUnit and make it executable
 RUN curl -L https://phar.phpunit.de/phpunit-6.phar -o /usr/local/bin/phpunit && \
     chmod +x /usr/local/bin/phpunit
@@ -83,6 +79,14 @@ RUN curl -L https://phar.phpunit.de/phpunit-6.phar -o /usr/local/bin/phpunit && 
 RUN curl -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \ 
     -o /usr/local/bin/wp && \
     chmod +x /usr/local/bin/wp
+
+# Additional Softwares for extended tags
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer
+
+# Install NodeJS, NPM and Yarn
+RUN apk add --no-cache nodejs npm yarn
 
 # Copy and set our entrypoint
 COPY entrypoint.sh /entrypoint.sh
