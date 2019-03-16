@@ -13,7 +13,7 @@ to configuring the runner so you can concentrate on writing tests for your code.
 
 ## Tags:
 
-### Main Tags wpunit/php:(7.3, 7.2, 7.0 and 5.6)
+### Main Tags wpunit/php:(7.3, 7.2, 7.1, 7.0 and 5.6)
 These tags contain respective PHP Versions, compiled with bz2, gd, intl, mysqli
 and zip extensions for better compatibility with WordPress related testing.
 
@@ -24,7 +24,7 @@ for testing with some lower versions of WordPress.
 1. [PHPUnit](https://phpunit.de/)
 1. [WP-CLI](https://wp-cli.org/)
 
-### Extended Tags wpunit/php:(7.3, 7.2, 7.0 and 5.6)-extended
+### Extended Tags wpunit/php:(7.3, 7.2, 7.1, 7.0 and 5.6)-extended
 Apart from the extensions and softwares mentioned above, these tags contain additional
 extensions namely Xdebug, Imagick, MongoDB, and Redis, which are installed from PECL.
 
