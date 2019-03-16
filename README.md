@@ -8,6 +8,8 @@ plugins and themes via [Gitlab CI](https://about.gitlab.com/gitlab-ci/).
 These images are based on official Docker PHP images built upon Alpine Linux with
 additional modules needed for testing with WordPress.
 
+You can find these docker images at [docker hub](https://hub.docker.com/r/wpunit/php).
+
 The goal of these tools is to automate as much as possible of routine work related
 to configuring the runner so you can concentrate on writing tests for your code.
 
