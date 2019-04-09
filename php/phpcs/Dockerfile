@@ -1,6 +1,10 @@
 FROM php:7.2-alpine
 MAINTAINER Gagan Deep Singh<me@gagan.pro>
 
+# Allows PHPCS to process files in parallel
+RUN docker-php-ext-configure pcntl
+RUN docker-php-ext-install pcntl
+
 # Install git to clone wpcs, we'll remove it later
 RUN apk add --no-cache --virtual build-deps git
 

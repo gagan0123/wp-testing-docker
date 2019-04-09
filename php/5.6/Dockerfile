@@ -29,6 +29,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure mysqli
 RUN docker-php-ext-configure mysql
+RUN docker-php-ext-configure pcntl
 RUN docker-php-ext-configure zip
 
 # Install php extensions
@@ -38,6 +39,7 @@ RUN docker-php-ext-install \
     intl \
     mysqli \
     mysql \
+    pcntl \
     zip
 
 # Remove unnecessary files
