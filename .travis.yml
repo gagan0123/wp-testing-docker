@@ -27,6 +27,10 @@ env:
           TAG=7.3
         - FOLDER=php/7.3-extended/
           TAG=7.3-extended
+        - FOLDER=php/7.4/ 
+          TAG=7.4
+        - FOLDER=php/7.4-extended/
+          TAG=7.4-extended
         - FOLDER=php/phpcs/
           TAG=wpcs
         - FOLDER=svn/
