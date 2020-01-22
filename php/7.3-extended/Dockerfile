@@ -47,7 +47,7 @@ RUN docker-php-ext-install \
 RUN apk add --no-cache pcre-dev ${PHPIZE_DEPS}
 # Install Xdebug Imagick MongoDB and Redis
 RUN pecl install \
-    xdebug-2.7.0beta1 \
+    xdebug \
     imagick \
     mongodb \
     redis
