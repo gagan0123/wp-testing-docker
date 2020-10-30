@@ -10,12 +10,14 @@ CONTAINERS=(
     7.2-extended
     7.3-extended
     7.4-extended
+    8.0-extended
     5.6
     7.0
     7.1
     7.2
     7.3
     7.4
+    8.0
 )
 
 # Login to docker
