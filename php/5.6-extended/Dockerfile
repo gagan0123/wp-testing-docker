@@ -51,7 +51,7 @@ RUN apk add --no-cache pcre-dev ${PHPIZE_DEPS}
 RUN pecl install \
     xdebug-2.5.5 \
     imagick \
-    mongodb \
+    mongodb-1.7.5 \
     redis-4.3.0
 # Remove pecl related stuff
 RUN apk del --no-cache pcre-dev ${PHPIZE_DEPS}
