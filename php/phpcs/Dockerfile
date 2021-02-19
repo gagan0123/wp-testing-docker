@@ -12,9 +12,15 @@ RUN apk add --no-cache --virtual build-deps git
 RUN curl -L https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -o /usr/local/bin/phpcs
 RUN chmod +x /usr/local/bin/phpcs
 
-# Now intalling wpcs and setting phpcs config to wpcs path
-RUN git clone -b master --depth=1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git wpcs
-RUN cd wpcs && rm -rf .gitattributes .phpcs.xml.dist .travis.yml CHANGELOG.md LICENSE README.md composer.json phpcs.xml.dist.sample phpunit.xml.dist .git .github .gitignore bin
+# Now intalling wpcs and VIP standards and setting phpcs config to wpcs path
+RUN mkdir /wpcs
+RUN git clone -b master --depth=1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git /tmp/WordPress-Coding-Standards && \
+	mv /tmp/WordPress-Coding-Standards/WordPress* /wpcs/
+RUN git clone -b 2.10 --depth=1 https://github.com/sirbrillig/phpcs-variable-analysis.git /tmp/phpcs-variable-analysis && \
+	mv /tmp/phpcs-variable-analysis/VariableAnalysis /wpcs/
+RUN git clone -b master --depth=1 https://github.com/Automattic/VIP-Coding-Standards.git /tmp/VIP-Coding-Standards && \
+	mv /tmp/VIP-Coding-Standards/WordPress* /wpcs/
+RUN rm -rf /tmp/*
 RUN phpcs --config-set installed_paths /wpcs
 
 # Remove the build dependencies to keep image small
