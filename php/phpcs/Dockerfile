@@ -20,6 +20,12 @@ RUN git clone -b 2.10 --depth=1 https://github.com/sirbrillig/phpcs-variable-ana
 	mv /tmp/phpcs-variable-analysis/VariableAnalysis /wpcs/
 RUN git clone -b master --depth=1 https://github.com/Automattic/VIP-Coding-Standards.git /tmp/VIP-Coding-Standards && \
 	mv /tmp/VIP-Coding-Standards/WordPress* /wpcs/
+RUN git clone -b master --depth=1 https://github.com/PHPCompatibility/PHPCompatibility.git /tmp/PHPCompatibility && \
+	mv /tmp/PHPCompatibility/PHPCompatibility /wpcs/ && mv /tmp/PHPCompatibility/PHPCSAliases.php /wpcs/PHPCSAliases.php
+RUN git clone -b master --depth=1 https://github.com/PHPCompatibility/PHPCompatibilityParagonie.git /tmp/PHPCompatibilityParagonie && \
+	mv /tmp/PHPCompatibilityParagonie/PHPCompatibility* /wpcs/
+RUN git clone -b master --depth=1 https://github.com/PHPCompatibility/PHPCompatibilityWP.git /tmp/PHPCompatibilityWP && \
+	mv /tmp/PHPCompatibilityWP/PHPCompatibility* /wpcs/
 RUN rm -rf /tmp/*
 RUN phpcs --config-set installed_paths /wpcs
 
