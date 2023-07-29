@@ -1,4 +1,4 @@
-FROM php:7.2-alpine
+FROM php:7.4-alpine
 MAINTAINER Gagan Deep Singh<me@gagan.pro>
 
 # Allows PHPCS to process files in parallel
